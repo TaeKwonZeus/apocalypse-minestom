@@ -8,7 +8,7 @@ import com.github.jenya705.cmscore.module.item.CustomItem
  * @param defaultRarity An item's default rarity.
  * @author bakane
  */
-abstract class ApocalypseItem(defaultRarity: ItemRarity): CustomItem {
+abstract class ApocalypseItem(defaultRarity: ItemRarity = ItemRarity.COMMON): CustomItem {
     /**
      * An item's rarity.
      */
