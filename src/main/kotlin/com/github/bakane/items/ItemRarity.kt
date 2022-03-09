@@ -12,7 +12,7 @@ enum class ItemRarity {
     COMMON, UNCOMMON, RARE, EPIC, MYTHIC, LEGENDARY;
 
     /**
-     * Gets the component of a rarity.
+     * Gets the [Component] of a rarity.
      */
     val displayName
         get() = when (this) {
