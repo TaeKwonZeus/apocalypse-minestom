@@ -2,6 +2,7 @@ package com.github.bakane.items
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
+import net.kyori.adventure.text.format.TextDecoration
 
 /**
  * Item rarity from common to legendary.
@@ -14,13 +15,12 @@ enum class ItemRarity {
     /**
      * Gets the [Component] of a rarity.
      */
-    val displayName
-        get() = when (this) {
-            COMMON -> Component.text("Обычный").color(NamedTextColor.GRAY)
-            UNCOMMON -> Component.text("Необычный").color(NamedTextColor.GREEN)
-            RARE -> Component.text("Редкий").color(NamedTextColor.BLUE)
-            EPIC -> Component.text("Эпический").color(NamedTextColor.DARK_PURPLE)
-            MYTHIC -> Component.text("Мифический").color(NamedTextColor.DARK_RED)
-            LEGENDARY -> Component.text("Легендарный").color(NamedTextColor.GOLD)
-        }
+    fun getDisplayName() = when (this) {
+        COMMON -> Component.text("ОБЫЧНЫЙ").color(NamedTextColor.GRAY)
+        UNCOMMON -> Component.text("НЕОБЫЧНЫЙ").color(NamedTextColor.GREEN)
+        RARE -> Component.text("РЕДКИЙ").color(NamedTextColor.BLUE)
+        EPIC -> Component.text("ЭПИЧЕСКИЙ").color(NamedTextColor.DARK_PURPLE)
+        MYTHIC -> Component.text("МИФИЧЕСКИЙ").color(NamedTextColor.DARK_RED)
+        LEGENDARY -> Component.text("ЛЕГЕНДАРНЫЙ").color(NamedTextColor.GOLD)
+    }.decorate(TextDecoration.BOLD)
 }
