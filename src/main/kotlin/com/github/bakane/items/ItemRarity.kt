@@ -24,6 +24,9 @@ enum class ItemRarity {
         LEGENDARY -> Component.text("ЛЕГЕНДАРНЫЙ").color(NamedTextColor.GOLD)
     }.decorate(TextDecoration.BOLD)
 
+    /**
+     * Gets the next rarity. Returns null if rarity at [LEGENDARY].
+     */
     fun getNextRarity() = when (this) {
         COMMON -> UNCOMMON
         UNCOMMON -> RARE

@@ -3,6 +3,7 @@ package com.github.bakane.items
 import net.kyori.adventure.text.Component
 import net.minestom.server.item.*
 import net.minestom.server.item.attribute.ItemAttribute
+import net.minestom.server.utils.NamespaceID
 
 /**
  * An apocalypse item.
@@ -14,10 +15,11 @@ import net.minestom.server.item.attribute.ItemAttribute
  * @author bakane
  */
 open class ApocalypseItem(
-    private val displayName: String,
+    val displayName: String,
+    val namespaceID: NamespaceID,
     private val material: Material,
-    private val rarity: ItemRarity,
-    private val attributes: List<ItemAttribute>
+    protected var rarity: ItemRarity,
+    protected val attributes: MutableList<ItemAttribute>
 ) {
     /**
      * Gets the [ItemStack] of an item.
@@ -31,13 +33,15 @@ open class ApocalypseItem(
         .build()
 
     /**
-     * Gets the upgraded item.
+     * Upgrades an item.
      *
-     * @return An upgraded item with improved stats.
+     * @return Whether an item has been upgraded or not.
      */
-    open fun getUpgradedItem(): ApocalypseItem? {
-        val nextRarity = rarity.getNextRarity() ?: return null
+    open fun upgrade(): Boolean {
+        val nextRarity = rarity.getNextRarity() ?: return false
 
-        return ApocalypseItem(displayName, material, nextRarity, attributes)
+        rarity = nextRarity
+
+        return true
     }
 }
