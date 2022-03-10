@@ -14,8 +14,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("com.github.Minestom:Minestom:4ab2f43eed")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
+    implementation("com.github.Minestom:Minestom:024ba736ce")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
 }
 

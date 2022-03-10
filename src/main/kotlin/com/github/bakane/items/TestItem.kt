@@ -14,7 +14,7 @@ class TestItem : ApocalypseItem(
     listOf(
         ItemAttribute(
             UUID.randomUUID(),
-            "Damage",
+            "Урон",
             Attribute.ATTACK_DAMAGE,
             AttributeOperation.ADDITION,
             2.0,
