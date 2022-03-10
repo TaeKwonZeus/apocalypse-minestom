@@ -23,4 +23,13 @@ enum class ItemRarity {
         MYTHIC -> Component.text("МИФИЧЕСКИЙ").color(NamedTextColor.DARK_RED)
         LEGENDARY -> Component.text("ЛЕГЕНДАРНЫЙ").color(NamedTextColor.GOLD)
     }.decorate(TextDecoration.BOLD)
+
+    fun getNextRarity() = when (this) {
+        COMMON -> UNCOMMON
+        UNCOMMON -> RARE
+        RARE -> EPIC
+        EPIC -> MYTHIC
+        MYTHIC -> LEGENDARY
+        LEGENDARY -> null
+    }
 }

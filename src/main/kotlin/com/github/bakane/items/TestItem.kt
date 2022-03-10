@@ -21,6 +21,4 @@ class TestItem : ApocalypseItem(
             AttributeSlot.MAINHAND
         )
     )
-) {
-    override fun getUpgradedItem(): ApocalypseItem? = null
-}
+)
