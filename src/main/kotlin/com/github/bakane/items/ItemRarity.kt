@@ -15,24 +15,12 @@ enum class ItemRarity {
     /**
      * Gets the [Component] of a rarity.
      */
-    fun getDisplayName() = when (this) {
-        COMMON -> Component.text("ОБЫЧНЫЙ").color(NamedTextColor.GRAY)
+    fun getComponent() = when (this) {
+        COMMON -> Component.text("ОБЫЧНЫЙ").color(NamedTextColor.WHITE)
         UNCOMMON -> Component.text("НЕОБЫЧНЫЙ").color(NamedTextColor.GREEN)
         RARE -> Component.text("РЕДКИЙ").color(NamedTextColor.BLUE)
         EPIC -> Component.text("ЭПИЧЕСКИЙ").color(NamedTextColor.DARK_PURPLE)
         MYTHIC -> Component.text("МИФИЧЕСКИЙ").color(NamedTextColor.DARK_RED)
         LEGENDARY -> Component.text("ЛЕГЕНДАРНЫЙ").color(NamedTextColor.GOLD)
     }.decorate(TextDecoration.BOLD)
-
-    /**
-     * Gets the next rarity. Returns null if rarity at [LEGENDARY].
-     */
-    fun getNextRarity() = when (this) {
-        COMMON -> UNCOMMON
-        UNCOMMON -> RARE
-        RARE -> EPIC
-        EPIC -> MYTHIC
-        MYTHIC -> LEGENDARY
-        LEGENDARY -> null
-    }
 }

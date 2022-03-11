@@ -8,18 +8,18 @@ import net.minestom.server.item.attribute.ItemAttribute
 import net.minestom.server.utils.NamespaceID
 import java.util.*
 
-class TestItem(rarity: ItemRarity = ItemRarity.RARE) : ApocalypseItem(
+class TestItem(tier: ItemTier = ItemTier.I) : ApocalypseItem(
     "Нож",
     NamespaceID.from("apocalypse:knife"),
     Material.IRON_SWORD,
-    rarity,
+    ItemRarity.RARE,
     mutableListOf(
         ItemAttribute(
             UUID.randomUUID(),
             "Урон",
             Attribute.ATTACK_DAMAGE,
             AttributeOperation.ADDITION,
-            rarity.ordinal + 1.0,
+            tier.ordinal + 1.0,
             AttributeSlot.MAINHAND
         )
     )
@@ -34,7 +34,7 @@ class TestItem(rarity: ItemRarity = ItemRarity.RARE) : ApocalypseItem(
             attribute.name,
             attribute.attribute,
             attribute.operation,
-            rarity.ordinal + 1.0,
+            tier.ordinal + 1.0,
             attribute.slot
         )
 

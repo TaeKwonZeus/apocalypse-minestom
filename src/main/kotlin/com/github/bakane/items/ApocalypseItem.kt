@@ -3,6 +3,7 @@ package com.github.bakane.items
 import net.kyori.adventure.text.Component
 import net.minestom.server.item.*
 import net.minestom.server.item.attribute.ItemAttribute
+import net.minestom.server.tag.Tag
 import net.minestom.server.utils.NamespaceID
 
 /**
@@ -15,21 +16,22 @@ import net.minestom.server.utils.NamespaceID
  * @author bakane
  */
 open class ApocalypseItem(
-    val displayName: String,
+    private val displayName: String,
     val namespaceID: NamespaceID,
     private val material: Material,
-    protected var rarity: ItemRarity,
-    protected val attributes: MutableList<ItemAttribute>
-) {
+    protected val rarity: ItemRarity,
+    protected val attributes: MutableList<ItemAttribute>,
+    protected var tier: ItemTier = ItemTier.I,
+    ) {
     /**
      * Gets the [ItemStack] of an item.
      *
      * @return An item's [ItemStack].
      */
     open fun getItemStack() = ItemStack.builder(material)
-        .displayName(Component.text(displayName).color(rarity.getDisplayName().color()))
-        .lore(rarity.getDisplayName())
-        .meta { metaBuilder: ItemMetaBuilder -> metaBuilder.attributes(attributes) }
+        .displayName(Component.text(displayName).color(rarity.getComponent().color()))
+        .lore(rarity.getComponent(), tier.getComponent())
+        .meta { metaBuilder: ItemMetaBuilder -> metaBuilder.attributes(attributes).set(Tag.String("tier"), tier.name) }
         .build()
 
     /**
@@ -38,9 +40,9 @@ open class ApocalypseItem(
      * @return Whether an item has been upgraded or not.
      */
     open fun upgrade(): Boolean {
-        val nextRarity = rarity.getNextRarity() ?: return false
+        val nextTier = tier.getNextTier() ?: return false
 
-        rarity = nextRarity
+        tier = nextTier
 
         return true
     }
