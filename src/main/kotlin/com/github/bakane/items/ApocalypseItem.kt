@@ -10,18 +10,20 @@ import net.minestom.server.utils.NamespaceID
  * An apocalypse item.
  *
  * @param displayName The name of an item.
+ * @param namespaceID The [NamespaceID] of an item.
  * @param material The material of an item (icon/block)
  * @param rarity The rarity of an item.
  * @param attributes The attributes of an item.
+ * @param tier The tier of an item.
  * @author bakane
  */
-open class ApocalypseItem(
+abstract class ApocalypseItem(
     private val displayName: String,
     val namespaceID: NamespaceID,
     private val material: Material,
-    protected val rarity: ItemRarity,
+    private val rarity: ItemRarity,
     protected val attributes: MutableList<ItemAttribute>,
-    protected var tier: ItemTier = ItemTier.I,
+    protected var tier: ItemTier,
     ) {
     /**
      * Gets the [ItemStack] of an item.
