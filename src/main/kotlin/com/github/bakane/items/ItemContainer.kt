@@ -10,13 +10,17 @@ import net.minestom.server.tag.Tag
  * @author bakane
  */
 object ItemContainer {
-    private val itemList = listOf<(tier: ItemTier) -> ApocalypseItem> { Knife(it) }
-
     /**
      * A map of IDs to corresponding [ApocalypseItem] constructor functions.
      */
-    private val items = itemList.associateBy { it(ItemTier.I).id }
+    private val items = listOf<(tier: ItemTier) -> ApocalypseItem> { Knife(it) }.associateBy { it(ItemTier.I).id }
 
+    /**
+     * Gets an item with the id and [ItemTier] from [itemStack] tags.
+     *
+     * @param itemStack An item stack to get an item from.
+     * @return An item corresponding to [itemStack].
+     */
     fun getItem(itemStack: ItemStack): ApocalypseItem? {
         val id = itemStack.getTag(Tag.String("id"))
         val tier = itemStack.getTag(Tag.String("tier"))
