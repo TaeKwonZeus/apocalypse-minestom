@@ -4,8 +4,6 @@ import net.kyori.adventure.text.Component
 import net.minestom.server.item.*
 import net.minestom.server.item.attribute.ItemAttribute
 import net.minestom.server.tag.Tag
-import net.minestom.server.utils.NamespaceID
-import org.jglrxavpok.hephaistos.nbt.NBTNumber
 
 /**
  * An apocalypse item.

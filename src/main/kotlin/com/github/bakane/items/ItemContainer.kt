@@ -3,7 +3,6 @@ package com.github.bakane.items
 import com.github.bakane.items.weapons.Knife
 import net.minestom.server.item.ItemStack
 import net.minestom.server.tag.Tag
-import net.minestom.server.utils.NamespaceID
 
 /**
  * An item container that stores all apocalypse items and provides functionality for accessing them.

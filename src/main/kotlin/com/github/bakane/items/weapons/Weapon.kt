@@ -8,7 +8,6 @@ import net.minestom.server.attribute.AttributeOperation
 import net.minestom.server.item.Material
 import net.minestom.server.item.attribute.AttributeSlot
 import net.minestom.server.item.attribute.ItemAttribute
-import net.minestom.server.utils.NamespaceID
 import java.util.*
 
 /**
