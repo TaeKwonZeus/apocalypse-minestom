@@ -15,7 +15,7 @@ import java.util.*
  * A base class for weapons. Right now supports basic damage upgrades per tier.
  *
  * @param displayName The name of an item.
- * @param namespaceID The [NamespaceID] of an item.
+ * @param id The unique identifier of an item.
  * @param material The material of an item (icon/block)
  * @param rarity The rarity of an item.
  * @param damagePerTier An item's damage for each tier, e.g. for tier [ItemTier.II] the damage would be [damagePerTier] * 2.
@@ -24,14 +24,14 @@ import java.util.*
  */
 abstract class Weapon(
     displayName: String,
-    namespaceID: NamespaceID,
+    id: String,
     material: Material,
     rarity: ItemRarity,
     private val damagePerTier: Double,
     tier: ItemTier
 ) : ApocalypseItem(
     displayName,
-    namespaceID,
+    id,
     material,
     rarity,
     mutableListOf(

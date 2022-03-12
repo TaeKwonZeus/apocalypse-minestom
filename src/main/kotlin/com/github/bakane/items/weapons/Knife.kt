@@ -7,7 +7,7 @@ import net.minestom.server.utils.NamespaceID
 
 class Knife(tier: ItemTier = ItemTier.I) : Weapon(
     "Нож",
-    NamespaceID.from("apocalypse:knife"),
+    "knife",
     Material.IRON_SWORD,
     ItemRarity.RARE,
     1.0,
