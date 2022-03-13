@@ -1,6 +1,7 @@
 package com.github.bakane
 
 import com.github.bakane.generators.FlatChunkGenerator
+import com.github.bakane.items.ApocalypseItems
 import com.github.bakane.items.ItemTier
 import com.github.bakane.items.weapons.Knife
 import net.minestom.server.MinecraftServer
@@ -18,7 +19,7 @@ fun main() {
 
     MinecraftServer.getGlobalEventHandler().addListener(PlayerLoginEvent::class.java) {
         with(it.player.inventory) {
-            addItemStack(Knife(ItemTier.V).getItemStack())
+            addItemStack(ApocalypseItems.KNIFE.item(ItemTier.V).getItemStack())
             addItemStack(ItemStack.of(Material.IRON_PICKAXE))
             addItemStack(ItemStack.of(Material.SANDSTONE, 64))
         }

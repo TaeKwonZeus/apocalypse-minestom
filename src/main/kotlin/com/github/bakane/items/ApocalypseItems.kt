@@ -5,15 +5,17 @@ import net.minestom.server.item.ItemStack
 import net.minestom.server.tag.Tag
 
 /**
- * An item container that stores all apocalypse items and provides functionality for accessing them.
+ * All apocalypse items and methods for accessing them.
  *
  * @author bakane
  */
-object ItemContainer {
+enum class ApocalypseItems(val item: (tier: ItemTier) -> ApocalypseItem) {
+    KNIFE({ Knife(it) });
+
     /**
      * A map of IDs to corresponding [ApocalypseItem] constructor functions.
      */
-    private val items = listOf<(tier: ItemTier) -> ApocalypseItem> { Knife(it) }.associateBy { it(ItemTier.I).id }
+    private val items = values().map { it.item }.associateBy { it(ItemTier.I).id }
 
     /**
      * Gets an item with the id and [ItemTier] from [itemStack] tags.
