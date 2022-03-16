@@ -75,7 +75,10 @@ fun onInventoryClick(ctx: InventoryClickEvent) {
         return
     }
 
-    mainItem.upgrade()
+    if (!mainItem.upgrade()) {
+        ctx.player.sendMessage("Апгрейд недоступен")
+        return
+    }
 
     inventory.setItemStack(2, mainItem.getItemStack())
 }
