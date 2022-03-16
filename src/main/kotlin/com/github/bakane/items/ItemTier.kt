@@ -2,6 +2,7 @@ package com.github.bakane.items
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
+import net.kyori.adventure.text.format.TextDecoration
 
 /**
  * Item tiers from I to V.
@@ -24,5 +25,7 @@ enum class ItemTier {
         V -> null
     }
 
-    fun getComponent() = Component.text("Уровень ${this.name}").color(NamedTextColor.LIGHT_PURPLE)
+    fun getComponent() = Component.text("Уровень ${this.name}")
+        .color(NamedTextColor.LIGHT_PURPLE)
+        .decoration(TextDecoration.ITALIC, false)
 }

@@ -1,6 +1,7 @@
 package com.github.bakane.items
 
 import net.kyori.adventure.text.Component
+import net.kyori.adventure.text.format.TextDecoration
 import net.minestom.server.item.*
 import net.minestom.server.item.attribute.ItemAttribute
 import net.minestom.server.tag.Tag
@@ -30,7 +31,7 @@ abstract class ApocalypseItem(
      * @return An item's [ItemStack].
      */
     open fun getItemStack() = ItemStack.builder(material)
-        .displayName(Component.text(displayName).color(rarity.getComponent().color()))
+        .displayName(Component.text(displayName).color(rarity.getComponent().color()).decoration(TextDecoration.ITALIC, false))
         .lore(rarity.getComponent(), tier.getComponent())
         .meta { metaBuilder: ItemMetaBuilder ->
             metaBuilder.attributes(attributes).set(Tag.String("tier"), tier.name).set(Tag.String("id"), id)
@@ -43,9 +44,7 @@ abstract class ApocalypseItem(
      * @return Whether an item has been upgraded or not.
      */
     open fun upgrade(): Boolean {
-        val nextTier = tier.getNextTier() ?: return false
-
-        tier = nextTier
+        tier = tier.getNextTier() ?: return false
 
         return true
     }

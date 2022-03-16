@@ -22,5 +22,5 @@ enum class ItemRarity {
         EPIC -> Component.text("ЭПИЧЕСКИЙ").color(NamedTextColor.DARK_PURPLE)
         MYTHIC -> Component.text("МИФИЧЕСКИЙ").color(NamedTextColor.DARK_RED)
         LEGENDARY -> Component.text("ЛЕГЕНДАРНЫЙ").color(NamedTextColor.GOLD)
-    }.decorate(TextDecoration.BOLD)
+    }.decorate(TextDecoration.BOLD).decoration(TextDecoration.ITALIC, false)
 }
